@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+    <style>
+        *::before,*::after,*{
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: azure;
+            color: black;
+            text-align: center;
+        }
+
+        .strength{
+            position: relative;
+            height: 2rem;
+            width: 90%;
+            border: 3px solid hsl(261, 88%, 57%);
+            border-radius: 1rem;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .strength::before {
+            content: '';
+             /* --strength=0; */
+             /* --strength:20; */
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: calc(1% * var(--strength));
+            background-color: hsl(262, 26%, 52%);
+            transition: width 200ms;
+        }
+    .password-input {
+      margin-top: 1rem;
+      width: 90%;
+      height: 50px;
+      font-size: large;
+      padding: .25rem .75rem;
+      background-color: hsl(340, 11%, 5%);
+      color: white;
+      border: 1px solid hsl(199, 88%, 57%);
+      outline: none;
+      text-align: center;
+      border-radius: .3rem;
+    }
+
+    .password-input:focus {
+      border-color: hsl(263, 48%, 19%);
+    }
+    /* Select all whose parent is .reasons */
+    .reasons > * { 
+      margin-top: .5rem;
+      font-size: large;
+      color: hsl(263, 90%, 4%);
+    }
+
+    </style>
+
+<!-- The defer attribute is a boolean attribute. If the defer attribute is set, it specifies that the script is downloaded in parallel to parsing the page, and executed after the page has finished parsing. -->
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <h1>Password Strength Checker</h1>
+    <div class="strength" id="strength"></div>
+    <input type="text" name="" id="password-input" class="password-input" value="password" autofocus aria-labelledby="password">
+    <div id="reasons" class="reasons"></div>
+</body>
+</html>
